@@ -8,7 +8,7 @@
 	textarea {
 		display: block;
 		width: 100%;
-    height: 30vh;
+    height: 25vh;
     min-height: 10em;
 	}
 	</style>
@@ -16,17 +16,26 @@
   <body>
     <h1>out-of-ranking-ids</h1>
     <textarea id="input"></textarea>
+    不在排名中，非0%可刪除
     <textarea id="output" onfocus="this.select()"></textarea>
+    排名中，不需交換，檢查非PvP即可刪除
+    <textarea id="output2" onfocus="this.select()"></textarea>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
 	$('#input').change(() => {
 		let ids = $('#input').val().trim().split('\n').join(',').split(',').filter( (value, index, self) => { 
 			return self.indexOf(value) === index;
 		});
-		let query = ids.join('&!')
+    
+    let query = ids.join('&!')
 		query = "!4*&距離0-10&!交換&!e&!c&!暗影&!淨化&!亮晶晶&!" + query
 		//console.log(query)
 		$('#output').val(query)
+    
+    let query2 = ids.join(',')
+		//console.log(query)
+    query2 = "!e&!c&" + query2
+		$('#output2').val(query2)
 	})
 	</script>
   </body>
