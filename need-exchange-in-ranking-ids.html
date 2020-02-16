@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>out-of-ranking-ids</title>
+    <title>need-exchange-in-ranking-ids</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
@@ -14,7 +14,7 @@
 	</style>
   </head>
   <body>
-    <h1>out-of-ranking-ids</h1>
+    <h1>need-exchange-in-ranking-ids</h1>
     <textarea id="input"></textarea>
     <textarea id="output" onfocus="this.select()"></textarea>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -23,8 +23,9 @@
 		let ids = $('#input').val().trim().split('\n').join(',').split(',').filter( (value, index, self) => { 
 			return self.indexOf(value) === index;
 		});
-		let query = ids.join('&!')
-		query = "!4*&距離0-10&!交換&!e&!c&!暗影&!淨化&!亮晶晶&!" + query
+    
+		let query = ids.join(',')
+		query = "!4*&距離0-10&!交換&!e&!c&!暗影&!淨化&!亮晶晶&" + query
 		//console.log(query)
 		$('#output').val(query)
 	})
