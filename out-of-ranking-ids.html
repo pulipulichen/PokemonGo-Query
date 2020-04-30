@@ -16,10 +16,31 @@
   <body>
     <h1>out-of-ranking-ids</h1>
     <textarea id="input"></textarea>
-    不在排名中，非0%可刪除
-    <textarea id="output" onfocus="this.select()"></textarea>
-    排名中，不需交換，檢查非PvP即可刪除
-    <textarea id="output2" onfocus="this.select()"></textarea>
+    <table width="100%">
+      <tbody>
+        <tr>
+          <th>不在排名中，非0%可刪除 (近距離)</th>
+          <th>不在排名中，非0%可刪除 (無視距離)</th>
+        </tr>
+        <tr>
+          <td><textarea id="output" onfocus="this.select()"></textarea></td>
+          <td><textarea id="outputNoDist" onfocus="this.select()"></textarea></td>
+        </tr>
+        
+        <!--
+        <tr>
+          <th colspan="2">排名中，不需交換，檢查非PvP即可刪除 (近距離)</th>
+        </tr>
+        <tr>
+          <td colspan="2"><textarea id="output2" onfocus="this.select()"></textarea></td>
+        </tr>
+        -->
+      </tbody>
+    </table>
+    
+    
+    
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
 	$('#input').change(() => {
@@ -29,13 +50,16 @@
     
     let query = ids.join('&!')
 		query = "!4*&距離0-10&!交換&!e&!c&!暗影&!淨化&!傳說的寶可夢&!異色&!亮晶晶&!" + query
+    let queryNoDist = "!4*&!交換&!e&!c&!暗影&!淨化&!傳說的寶可夢&!異色&!亮晶晶&!" + query
 		//console.log(query)
 		$('#output').val(query)
+    $('#outputNoDist').val(query)
     
+    /*
     let query2 = ids.join(',')
-		//console.log(query)
     query2 = "!e&!c&" + query2
 		$('#output2').val(query2)
+     */
 	})
 	</script>
   </body>
